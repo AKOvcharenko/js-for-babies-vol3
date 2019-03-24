@@ -25,7 +25,17 @@
  * */
 
 const translateName = (arr) => {
+  const names = arr.map((entity) => entity.name);
 
+  return arr.map((entity, index) => {
+    const isUniqueName = names.indexOf(entity.name) === index;
+
+    if(isUniqueName) {
+      return entity;
+    }
+
+    return {name: `${entity.name}-${entity.timestamp}`, timestamp: entity.timestamp };
+  });
 };
 
 
