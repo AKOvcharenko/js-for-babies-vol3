@@ -14,7 +14,20 @@
  * */
 
 const areEqual = (first, second) => {
+  const t1 = typeof first;
+  const t2 = typeof second;
 
+  if(t2 !== 'object' && t1 !== 'object') {
+    return first === second;
+  }
+
+  if(Array.isArray(first) !== Array.isArray(second)) {
+    return false;
+  }
+
+  const keys = [...Object.keys(first), ...Object.keys(second)];
+
+  return keys.every((key) => areEqual(first[key], second[key]));
 };
 
 
