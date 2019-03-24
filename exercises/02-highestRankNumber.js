@@ -15,7 +15,25 @@
  * */
 
 const highestRank = (arr) => {
+  let result = 0;
+  const translated = arr.reduce((result, current) => {
+    if( current in result ) {
+      result[current] += 1;
+    }
+    else {
+      result[current] = 1;
+    }
+    return result;
+  },{});
 
+  for(key in translated) {
+    let keyAsNum = Number(key);
+    if (!result) result = keyAsNum;
+    else if(translated[keyAsNum] > translated[result]) result = keyAsNum;
+    else if (translated[keyAsNum] === translated[result] && result < keyAsNum) result = keyAsNum;
+  }
+
+  return result;
 };
 
 
