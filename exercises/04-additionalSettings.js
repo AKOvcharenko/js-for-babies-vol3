@@ -34,7 +34,11 @@
  * */
 
 const getAdditionalSettings = (firstArr, secondArr) => {
+  const secondKeys = secondArr.map(({key}) => key);
 
+  const uniqueFirsNames = firstArr.filter(({key}) => !secondKeys.includes(key));
+
+  return [...uniqueFirsNames, ...secondArr];
 };
 
 
