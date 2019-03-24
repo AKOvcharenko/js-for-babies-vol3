@@ -14,7 +14,17 @@
  * */
 
 const getWinner = (candidates = []) => {
+  let transformed = candidates.reduce((result, candidate) => {
+    const scores = candidate.scores.reduce((result, current) => result + current);
 
+    if(scores < 101) {
+      result.push({name: candidate.name, scores})
+    }
+    return result;
+  }, []);
+
+  transformed = transformed.sort((first, second) => first.scores < second.scores ? 1 :-1);
+  return transformed[0] ? transformed[0].name : false;
 };
 
 
