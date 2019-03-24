@@ -1,0 +1,17 @@
+{
+  "name": "prototypal-inheritance-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest exercises",
+    "test:watch": "npm run test -- --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9"
+  }
+}
